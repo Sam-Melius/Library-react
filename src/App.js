@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 
 import './App.css';
 import DataGrid from 'react-data-grid';
@@ -5,16 +6,21 @@ import data from './data';
 import { createColumns, barData } from './data-utils';
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryTheme, VictoryPie } from 'victory';
 import { colors } from '@material-ui/core';
+import { purple } from '@material-ui/core/colors';
 
 
 function App() {
   
   return (
     <div>
-      <DataGrid
+      <section>
+        <DataGrid
         columns={createColumns(data)}
         rows={data} />
-      <VictoryChart 
+      </section>
+      
+      <section>
+        <VictoryChart 
         theme={VictoryTheme.material}
         domainPadding={{ x: 15, y: 15 }}
       >
@@ -43,15 +49,25 @@ function App() {
          
           
         />
+        
       </VictoryChart>
-
-      <VictoryPie
-        data={[
-          { x: 'Cats', y: 35 },
-          { x: 'Dogs', y: 40 },
-          { x: 'Birds', y: 55 }
-        ]}
+      </section>
+      <section className='pie'>
+        <VictoryPie
+        colorScale={['black', 'maroon', 'violet', 'blue', 'green',
+         'gold', 'black', 'khaki', 'teal', 'pink',
+          'indigo', 'orange', 'black', 'turquoise',
+           'aquamarine', 'crimson', 'red', 'purple', 'yellow']}
+          data={barData(data)}
+          x='color' y='averageAge'
+          
+          
+          
+        
       />
+      </section>
+
+
     </div>
     
 
