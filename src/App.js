@@ -3,7 +3,7 @@
 import './App.css';
 import DataGrid from 'react-data-grid';
 import data from './data';
-import { createColumns, barData } from './data-utils';
+import { createColumns, barData, pieHash } from './data-utils';
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryTheme, VictoryPie, VictoryLine } from 'victory';
 
 
@@ -53,15 +53,9 @@ function App() {
       </section>
       <section className='pie'>
         <VictoryPie
-        colorScale={['black', 'maroon', 'violet', 'blue', 'green',
-         'gold', 'black', 'khaki', 'teal', 'pink',
-          'indigo', 'orange', 'black', 'turquoise',
-           'aquamarine', 'crimson', 'red', 'purple', 'yellow']}
-          data={barData(data)}
-          x='color' y='averageAge'
-          
-          
-          
+        
+          data={pieHash(data)}
+          x='make' y='owners'
         
       />
       </section>
@@ -113,3 +107,6 @@ function App() {
 }
 
 export default App;
+
+
+

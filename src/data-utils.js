@@ -29,3 +29,20 @@ export function barData(arr) {
       averageAge: entry[1].total / entry[1].count
     }));
 }
+
+export function pieHash(arr) {
+  const carCount = arr.reduce((acc, curr) => {
+    if (acc[curr.car_make]) {
+      acc[curr.car_make]++;
+    }  
+    else {
+      acc[curr.car_make] = 1;
+    }
+    return acc;
+  }, {});
+  return Object.entries(carCount)
+    .map(entry => ({
+      make: entry[0],
+      owners: entry[1]
+    }));
+}
