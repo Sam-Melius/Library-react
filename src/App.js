@@ -44,22 +44,23 @@ function App() {
         
         <VictoryBar data={barData(data)} 
           x='year' y='owners' 
-          style={{ data: { fill: '#c43a31' } }}
+          style={{ data: { fill: 'indigo' } }}
           alignment="start"
           barRatio={.75}  
          
           
         />
-        <h1>Number of customers per Year</h1>
+        
       </VictoryChart>
       </section>
       <section className='pie'>
         <VictoryPie
-        colorScale={['tomato', 'orange', 'gold', 'cyan', 'navy']}
+        style={{ labels: { fontSize: 10, } }}
+        colorScale={['tomato', 'orange', 'indigo', 'gold', 'cyan', 'navy', 'yellowgreen', 'purple']}
           data={pieHash(data)}
           x='make' y='owners'
-          height={400}
-          padding={100}
+          width={500}
+          padding={75}
           labelPosition={({ index }) => index
     ? 'parallel'
     : 'vertical'
@@ -81,8 +82,8 @@ function App() {
          
           style={{ 
             axis: { stroke: ' #E0F2F1' },
-            axisLabel: { fontSize: 20 },
-            tickLabels: { fontSize: 5, padding: 10, angle: 30, fill: 'indigo', fontWeight: 'bold' }
+            axisLabel: { fontSize: 20, fontFamily: 'monospace' },
+            tickLabels: { fontSize: 5, padding: 10, angle: 30, fill: 'indigo', fontWeight: 'bold', fontFamily:'monospace' }
           }} />
         <VictoryAxis
           dependentAxis
