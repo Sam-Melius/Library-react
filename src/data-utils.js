@@ -11,22 +11,19 @@ export function createColumns(arr) {
 }
 
 export function barData(arr) {
-  const count = arr.reduce((acc, curr) => {
-    if (acc[curr.favorite_color]) {
-      acc[curr.favorite_color].count++;
-      acc[curr.favorite_color].total = acc[curr.favorite_color].total + curr.age;
-    }
+  const carCount = arr.reduce((acc, curr) => {
+    if (acc[curr.year]) {
+      acc[curr.year]++;
+    }  
     else {
-      acc[curr.favorite_color] = {};
-      acc[curr.favorite_color].count = 1;
-      acc[curr.favorite_color].total = curr.age;
+      acc[curr.year] = 1;
     }
     return acc;
   }, {});
-  return Object.entries(count)
+  return Object.entries(carCount)
     .map(entry => ({
-      color: entry[0],
-      averageAge: entry[1].total / entry[1].count
+      year: entry[0],
+      owners: entry[1]
     }));
 }
 

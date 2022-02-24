@@ -33,15 +33,15 @@ function App() {
           }} />
         <VictoryAxis
           dependentAxis
-          tickValues={[10, 20, 30, 40, 50, 60, 70]}
-          tickFormat={['10yrs', '20yrs', '30yrs', '40yrs', '50yrs', '60yrs', '70yrs']}
+          tickValues={[1, 2, 3, 4, 5, 6, 7, 8]}
+          tickFormat={['1', '2', '3', '4', '5', '6', '7', '8']}
 
           
           
         />
 
         <VictoryBar data={barData(data)} 
-          x='color' y='averageAge' 
+          x='year' y='owners' 
           style={{ data: { fill: '#c43a31' } }}
           alignment="start"
           barRatio={.75}  
@@ -74,8 +74,8 @@ function App() {
           }} />
         <VictoryAxis
           dependentAxis
-          tickValues={[0, 1, 2, 3, 4, 5, 6, 7]}
-          tickFormat={['o cust', '1 cust', '2 cust', '3 cust', '4 cust', '5 cust', '6 cust', '7 cust']}
+          tickValues={[0, 1, 2, 3, 4, 5, 6, 7, 8]}
+          tickFormat={['o cust', '1 cust', '2 cust', '3 cust', '4 cust', '5 cust', '6 cust', '7 cust', '8 cust']}
 
           
           
