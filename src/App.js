@@ -3,7 +3,7 @@
 import './App.css';
 import DataGrid from 'react-data-grid';
 import data from './data';
-import { createColumns, barData, pieHash } from './data-utils';
+import { createColumns, barData, pieHash, lineHash } from './data-utils';
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryTheme, VictoryPie, VictoryLine } from 'victory';
 
 
@@ -74,22 +74,19 @@ function App() {
           }} />
         <VictoryAxis
           dependentAxis
-          tickValues={[10, 20, 30, 40, 50, 60, 70]}
-          tickFormat={['10yrs', '20yrs', '30yrs', '40yrs', '50yrs', '60yrs', '70yrs']}
+          tickValues={[0, 1, 2, 3, 4, 5, 6, 7]}
+          tickFormat={['o cust', '1 cust', '2 cust', '3 cust', '4 cust', '5 cust', '6 cust', '7 cust']}
 
           
           
         />
 
-        <VictoryLine data={barData(data)} 
-          x='color' y='averageAge' 
+        <VictoryLine data={lineHash(data)} 
+          x='year' y='owners' 
           
          
-          animate={{
-            duration: 2000,
-            onLoad: { duration: 1000 }
-          }} 
-          interpolation="natural"
+          
+          
          
           
         />

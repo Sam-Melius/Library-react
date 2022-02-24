@@ -46,3 +46,20 @@ export function pieHash(arr) {
       owners: entry[1]
     }));
 }
+
+export function lineHash(arr) {
+  const carCount = arr.reduce((acc, curr) => {
+    if (acc[curr.year]) {
+      acc[curr.year]++;
+    }  
+    else {
+      acc[curr.year] = 1;
+    }
+    return acc;
+  }, {});
+  return Object.entries(carCount)
+    .map(entry => ({
+      year: entry[0],
+      owners: entry[1]
+    }));
+}
