@@ -13,12 +13,14 @@ function App() {
   return (
     <div className='main'>
       <section>
+        <h1>Data</h1>
         <DataGrid
         columns={createColumns(data)}
         rows={data} />
       </section>
       
       <section>
+        
         <VictoryChart 
         theme={VictoryTheme.material}
         domainPadding={{ x: 15, y: 15 }}
@@ -39,7 +41,7 @@ function App() {
           
           
         />
-
+        
         <VictoryBar data={barData(data)} 
           x='year' y='owners' 
           style={{ data: { fill: '#c43a31' } }}
@@ -48,7 +50,7 @@ function App() {
          
           
         />
-        
+        <h1>Number of customers per Year</h1>
       </VictoryChart>
       </section>
       <section className='pie'>
