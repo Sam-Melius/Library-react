@@ -11,7 +11,7 @@ import { VictoryAxis, VictoryBar, VictoryChart, VictoryTheme, VictoryPie, Victor
 function App() {
   
   return (
-    <div>
+    <div className='main'>
       <section>
         <DataGrid
         columns={createColumns(data)}
@@ -34,7 +34,7 @@ function App() {
         <VictoryAxis
           dependentAxis
           tickValues={[1, 2, 3, 4, 5, 6, 7, 8]}
-          tickFormat={['1', '2', '3', '4', '5', '6', '7', '8']}
+          tickFormat={['1 cust', '2 cust', '3 cust', '4 cust', '5 cust', '6 cust', '7 cust', '8 cust']}
 
           
           
@@ -53,9 +53,19 @@ function App() {
       </section>
       <section className='pie'>
         <VictoryPie
-        
+        colorScale={['tomato', 'orange', 'gold', 'cyan', 'navy']}
           data={pieHash(data)}
           x='make' y='owners'
+          height={400}
+          padding={100}
+          labelPosition={({ index }) => index
+    ? 'parallel'
+    : 'vertical'
+  }
+  labelPlacement={({ index }) => index
+    ? 'parallel'
+    : 'vertical'
+  }
         
       />
       </section>
